@@ -21,6 +21,7 @@ namespace TalalaevKursovaya.DataFolder
         public string Email { get; set; }
         public int ReklamaTypeId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<int> Price { get; set; }
     
         public virtual ReklamaType ReklamaType { get; set; }
     }

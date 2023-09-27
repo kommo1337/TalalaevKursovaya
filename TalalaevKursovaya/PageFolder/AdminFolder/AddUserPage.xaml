@@ -43,8 +43,8 @@
             <TextBox x:Name="UserPassortTb" Grid.Row="4" Grid.Column="1"
                      materialDesign:HintAssist.Hint="Пароль"/>
 
-            <TextBox x:Name="DateOfBirthTb" Grid.Row="4" Grid.Column="2"
-                     materialDesign:HintAssist.Hint="Дата рождения"/>
+            <Label Content="Дата заказа" Grid.Row="4" Grid.Column="2" FontSize="16" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
+            <DatePicker Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" x:Name="DateDRPick"/>
             <TextBox x:Name="FIOTb" Grid.Row="2" Grid.Column="2"
                      materialDesign:HintAssist.Hint="ФИО"/>
             <ComboBox x:Name="RoleCb" Grid.Row="6" Grid.Column="1"

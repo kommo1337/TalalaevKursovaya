@@ -40,7 +40,8 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
+                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
+
                 throw;
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace TalalaevKursovaya.WindowFolder
         public AuthorizationWindow()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,13 +37,13 @@ namespace TalalaevKursovaya.WindowFolder
 
                 if (user == null)
                 {
-                    MBClass.ErrorMB("Введен неверный логин");
+                    MBClass.ShowErrorPopup("Не верный логин!", Application.Current.MainWindow);
                     LoginTB.Focus();
                     return;
                 }
                 if (user.UserPassword != PaswordTB.Text)
                 {
-                    MBClass.ErrorMB("Введен неверный пароль");
+                    MBClass.ShowErrorPopup("Не верный пароль!", Application.Current.MainWindow);
                     PaswordTB.Focus();
                     return;
                 }
@@ -62,7 +64,7 @@ namespace TalalaevKursovaya.WindowFolder
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
+                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
             }
         }
 
@@ -76,6 +78,21 @@ namespace TalalaevKursovaya.WindowFolder
         {
             new RegistrationWindow().Show();
             Close();
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

@@ -35,10 +35,7 @@ namespace TalalaevKursach.PageFolder.AdminFolder
                 .Role.ToList();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -51,12 +48,12 @@ namespace TalalaevKursach.PageFolder.AdminFolder
                 user.UserPassword = UserPassortTb.Text;
                 user.RoleId = index;
                 DBEntities.GetContext().SaveChanges();
-                MBClass.InfoMB("Данные успешно отредактированы");
+                MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
                 NavigationService.Navigate(new ListUserPage());
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
+                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
             }
         }
 

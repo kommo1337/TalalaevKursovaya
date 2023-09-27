@@ -42,7 +42,7 @@ namespace TalalaevKursach.PageFolder.AdminFolder
             {
                 try
                 {
-                    string dateString = DateOfBirthTb.Text;
+                    string dateString = DateDRPick.SelectedDate.ToString();
                     string format = "dd.MM.yyyy"; 
 
                     if (DateTime.TryParseExact(dateString, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateOfBirth))
@@ -76,51 +76,42 @@ namespace TalalaevKursach.PageFolder.AdminFolder
         {
             if (string.IsNullOrWhiteSpace(UserNameTb.Text))
             {
-                MBClass.ErrorMB("Введите логин");
+                MBClass.ShowErrorPopup("Введите логин", Application.Current.MainWindow);
                 UserNameTb.Focus();
             }
             else if (string.IsNullOrWhiteSpace(UserPassortTb.Text))
             {
-                MBClass.ErrorMB("Введите пароль");
+                MBClass.ShowErrorPopup("Введите пароль", Application.Current.MainWindow);
                 UserPassortTb.Focus();
             }
             else if (RoleCb.SelectedIndex == -1)
             {
-                MBClass.ErrorMB("Выберите роль для пользователя");
+                MBClass.ShowErrorPopup("Выберите роль", Application.Current.MainWindow);
                 RoleCb.Focus();
             }
             else
             {
                 try
                 {
-                    string dateString = DateOfBirthTb.Text;
-                    string format = "dd.MM.yyyy";
-
-                    if (DateTime.TryParseExact(dateString, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateOfBirth))
+                    DBEntities.GetContext().User.Add(new User()
                     {
-                        DBEntities.GetContext().User.Add(new User()
-                        {
-                            UserName = UserNameTb.Text,
-                            UserPassword = UserPassortTb.Text,
-                            RoleId = 1,
-                            FIO = FIOTb.Text,
-                            DateOfBirth = dateOfBirth,
-                            Adress = AdresTb.Text
-                        });
-                        DBEntities.GetContext().SaveChanges();
-                        MBClass.InfoMB("Дообавленно");
-                    }
-                    else
-                    {
-
-                        MessageBox.Show("Ошибка: Неверный формат даты.");
-                    }
+                        UserName = UserNameTb.Text,
+                        UserPassword = UserPassortTb.Text,
+                        RoleId = 1,
+                        FIO = FIOTb.Text,
+                        DateOfBirth = (DateTime)DateDRPick.SelectedDate,
+                        Adress = AdresTb.Text
+                    });
+                    DBEntities.GetContext().SaveChanges();
+                    MBClass.ShowMesagePopup("Добавленно", Application.Current.MainWindow);
                 }
                 catch (Exception ex)
                 {
-                    MBClass.ErrorMB(ex);
-                    throw;
+                    MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
+                    
                 }
+
+               
             }
         }
 

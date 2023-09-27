@@ -46,14 +46,14 @@
                         <Button x:Name="ListBookBtn" Width="260" Click="ListBookBtn_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/ResourceFolder/ImageFolder/list.png"
-                                   Width="20"/>
+                                   Width="20" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Список пользователей" Style="{DynamicResource ButtonTextBlock}"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="AddBookBtn" Width="260" Click="AddBookBtn_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/ResourceFolder/ImageFolder/add.png"
-                                   Width="20"/>
+                                   Width="20" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Добавить пользователя" Style="{DynamicResource ButtonTextBlock}"/>
                             </StackPanel>
                         </Button>

@@ -6,16 +6,23 @@
         xmlns:local="clr-namespace:TalalaevKursovaya.WindowFolder"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-         Title="LoginWindow" Height="730" Width="980">
+         Title="LoginWindow" Height="430" Width="580" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="486*"/>
+            <ColumnDefinition Width="55*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="/ResourceFolder/ImageFolder/BackgroundImage.png"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="192*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <materialDesign:Card Grid.Row="1" Margin="290,207,260,99" Padding="20">
+        <materialDesign:Card Grid.Row="2" Padding="20" Grid.Column="1" Background="#D8FFFFFF">
             <Grid Margin="0,0,0,-3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -27,11 +34,25 @@
                 <Label Content="Авторизация" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,0"/>
                 <TextBox Grid.Row="1" x:Name="LoginTB" Margin="0,20,0,0" materialDesign:HintAssist.Hint="Логин"/>
                 <TextBox Grid.Row="2" x:Name="PaswordTB" Margin="0,10,0,0" materialDesign:HintAssist.Hint="Пароль" materialDesign:PasswordBoxAssist.Password="True"/>
-                <Button Grid.Row="3"  Margin="77,26,0,-12" Content="Войти" HorizontalAlignment="Left" Width="181" Click="Button_Click"/>
-                <TextBlock Text="Регестрация"  Style="{StaticResource RegistrationLink}" Grid.Row="4" HorizontalAlignment="Center" Margin="0,26,0,0" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown_1"  />
+                <Button Grid.Row="3"  Margin="0,7,0,7" Content="Войти" HorizontalAlignment="Center" Width="182" Click="Button_Click"/>
+                <TextBlock Text="Регистрация"  Style="{StaticResource RegistrationLink}" Grid.Row="4" HorizontalAlignment="Center" Margin="0,26,0,0" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown_1"  />
 
             </Grid>
         </materialDesign:Card>
-
+        <Image Grid.Column="2" HorizontalAlignment="Left" Height="33" Margin="21,0,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="33" Source="/ResourceFolder/ImageFolder/close.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Popup Name="errorPopup" StaysOpen="False">
+            <Border CornerRadius="5" >
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FFF70452" Offset="1"/>
+                        <GradientStop Color="#FF790128" Offset="0"/>
+                        <GradientStop Color="#FF790128" Offset="0.235"/>
+                        <GradientStop Color="#FF81012A" Offset="0.091"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <TextBlock Margin="10" Foreground="White" Text="Ошибка: Ваш текст ошибки здесь" />
+            </Border>
+        </Popup>
     </Grid>
 </Window>

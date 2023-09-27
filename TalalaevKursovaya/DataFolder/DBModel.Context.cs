@@ -17,7 +17,6 @@ namespace TalalaevKursovaya.DataFolder
     
     public partial class DBEntities : DbContext
     {
-
         private static DBEntities context;
 
         public static DBEntities GetContext()

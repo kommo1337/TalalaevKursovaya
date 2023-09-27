@@ -49,12 +49,13 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
                 customers.ReklamaTypeId = index;
                 customers.Date = DateTime.Parse(DateTb.Text);
                 DBEntities.GetContext().SaveChanges();
-                MBClass.InfoMB("Данные успешно отредактированы");
+                MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
                 NavigationService.Navigate(new ListUserPage());
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
+                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
+
             }
         }
 

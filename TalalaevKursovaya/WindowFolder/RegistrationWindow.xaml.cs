@@ -42,19 +42,29 @@ namespace TalalaevKursovaya.WindowFolder
                 });
                 DBEntities.GetContext().SaveChanges();
 
-                MBClass.InfoMB("Вы успешно зарегистрировались");
+                MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
                 new AuthorizationWindow().Show();
                 Close();
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
+                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
             }
         }
 
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             new AuthorizationWindow().Show();
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+           App.Current.Shutdown();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

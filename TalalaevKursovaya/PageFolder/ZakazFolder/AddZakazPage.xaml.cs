@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -34,24 +35,54 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
             try
             {
                 int index = ReklamaTypeCb.SelectedIndex + 1;
+                int price = GetPriceForReklamaType(index);
                 DBEntities.GetContext().Customers.Add(new Customers()
                 {
                     FullName = NameTb.Text,
-                    BirthDate = DateTime.Parse(BirthDateTb.Text),
+                    BirthDate = (DateTime)DateBirthPick.SelectedDate,
                     PhoneNumber= PhoneNumberTb.Text,
                     Email = EmailTb.Text,
-                    ReklamaTypeId= index,
-                    Date= DateTime.Parse(DateTb.Text)
+                    ReklamaTypeId = index,
+                    Date= (DateTime)DateZakazPick.SelectedDate,
+                    Price= price
                 });
                 DBEntities.GetContext().SaveChanges();
-                MBClass.InfoMB("Пользователь успешно добавлен");
+                MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
+
+
+
             }
             catch (Exception ex)
             {
-                MBClass.ErrorMB(ex);
-                throw;
+                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
+                
             }
         }
+
+        private int GetPriceForReklamaType(int reklamaTypeId)
+        {
+            int price = 0;
+
+            switch (reklamaTypeId)
+            {
+                case 1:
+                    price = 100; 
+                    break;
+                case 2:
+                    price = 150; 
+                    break;
+                case 3:
+                    price = 200; 
+                    break;
+                
+                default:
+                    price = 0; 
+                    break;
+            }
+
+            return price;
+        }
+
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {

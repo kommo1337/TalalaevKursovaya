@@ -9,7 +9,7 @@
        MinHeight="500" MinWidth="500"
       MaxHeight="500" MaxWidth="500"
       Title="Редактирование пользователя"
-      Loaded="Page_Loaded">
+      >
     <Border BorderBrush="{x:Null}" BorderThickness="1" CornerRadius="20"
                   >
         <Border.Effect>
@@ -66,11 +66,6 @@
                         Height="40"
                         Width="400"
                         Click="AuthBtn_Click"/>
-                <Button x:Name="BackBtn"
-                        Content="Назад"
-                        Height="40"
-                        Width="400"
-                        Click="BackBtn_Click"/>
             </StackPanel>
         </Grid>
     </Border>
