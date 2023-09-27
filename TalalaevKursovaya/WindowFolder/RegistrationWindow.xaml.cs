@@ -55,6 +55,7 @@ namespace TalalaevKursovaya.WindowFolder
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             new AuthorizationWindow().Show();
+            Close();
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -66,5 +66,36 @@ namespace TalalaevKursach.PageFolder.AdminFolder
         {
 
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+            //    User user = DBEntities.GetContext().User
+            //        .FirstOrDefault(u => u.UserId == u.UserId);
+
+            //    if (user != null)
+            //    {
+            //        user.UserName = UserNameTb.Text;
+            //        user.UserPassword = UserPassortTb.Text;
+            //        user.FIO = FIOTb.Text;
+            //        user.DateOfBirth = (DateTime)DateDRPick.SelectedDate;
+            //        user.Adress = AdresTb.Text;
+
+            //        DBEntities.GetContext().SaveChanges();
+
+            //        MBClass.ShowMesagePopup("Обновлено", Application.Current.MainWindow);
+            //    }
+            //    else
+            //    {
+            //        MBClass.ShowErrorPopup("Выбирете пользователя", Application.Current.MainWindow);
+
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
+            //}
+        }
     }
 }

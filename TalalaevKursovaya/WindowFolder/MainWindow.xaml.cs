@@ -33,7 +33,7 @@ namespace TalalaevKursovaya.WindowFolder
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            
         }
 
         private void CloseIm_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -50,6 +50,11 @@ namespace TalalaevKursovaya.WindowFolder
         private void ListBookBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ListUserPage());
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

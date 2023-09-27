@@ -12,7 +12,7 @@
         WindowStyle="None"
         Background="{x:Null}"
         AllowsTransparency="True"
-        ResizeMode="CanResizeWithGrip">
+        ResizeMode="CanResizeWithGrip" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Border Style="{StaticResource MainBorder}"
             MouseDown="Border_MouseDown">
         <Grid>

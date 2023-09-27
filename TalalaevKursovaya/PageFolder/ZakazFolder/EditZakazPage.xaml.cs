@@ -33,7 +33,11 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
 
             ReklamaTypeCb.ItemsSource = DBEntities.GetContext()
                 .ReklamaType.ToList();
+
+
         }
+
+
 
         private void AuthBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -43,11 +47,11 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
                 customers = DBEntities.GetContext().Customers
                     .FirstOrDefault(u => u.CustomerId == customers.CustomerId);
                 customers.FullName = NameTb.Text;
-                customers.BirthDate = DateTime.Parse(BirthDateTb.Text);
+                customers.BirthDate = (DateTime)DateDRPick.SelectedDate;
                 customers.PhoneNumber = PhoneNumberTb.Text;
                 customers.Email = EmailTb.Text;
                 customers.ReklamaTypeId = index;
-                customers.Date = DateTime.Parse(DateTb.Text);
+                customers.Date = (DateTime)DateZakazPick.SelectedDate;
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
                 NavigationService.Navigate(new ListUserPage());
@@ -55,7 +59,6 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
             catch (Exception ex)
             {
                 MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
-
             }
         }
 
@@ -66,7 +69,31 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Customers customers = DBEntities.GetContext().Customers
+                    .FirstOrDefault(u => u.CustomerId == u.CustomerId);
 
-        }
+                if (customers != null)
+                {
+                    NameTb.Text = customers.FullName;
+                    PhoneNumberTb.Text = customers.PhoneNumber;
+                    EmailTb.Text = customers.Email;
+
+                    DateDRPick.SelectedDate = customers.BirthDate;
+                    DateZakazPick.SelectedDate = customers.Date;
+
+                    ReklamaTypeCb.SelectedIndex = customers.ReklamaTypeId - 1;
+                }
+                else
+                {
+                    MBClass.ShowMesagePopup("Выбирете пользователя", Application.Current.MainWindow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
+            }
+        }           
     }
 }

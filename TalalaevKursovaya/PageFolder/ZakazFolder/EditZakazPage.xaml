@@ -40,8 +40,9 @@
             <TextBox x:Name="NameTb" Grid.Row="2" Grid.Column="1"
                      materialDesign:HintAssist.Hint="ФИО"/>
 
-            <TextBox x:Name="BirthDateTb" Grid.Row="4" Grid.Column="1"
-                     materialDesign:HintAssist.Hint="Дата рождения"/>
+            <Label Content="Дата заказа" Grid.Row="4" Grid.Column="1" FontSize="16" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
+            <DatePicker Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" x:Name="DateZakazPick"/>
+
 
             <TextBox x:Name="PhoneNumberTb" Grid.Row="6" Grid.Column="1"
                      materialDesign:HintAssist.Hint="Номер телефона"/>
@@ -52,8 +53,9 @@
                       ItemsSource="{Binding ReklamaType}" DisplayMemberPath="ReklamaTypeName"
                   SelectedValuePath="Id"
                   SelectedValue="{Binding Path=Id}"/>
-            <TextBox x:Name="DateTb" Grid.Row="6" Grid.Column="2"
-                     materialDesign:HintAssist.Hint="Дата"/>
+            <Label Content="Дата рождения" Grid.Row="6" Grid.Column="2" FontSize="16" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
+            <DatePicker Grid.Column="2" Grid.Row="6" HorizontalAlignment="Right" x:Name="DateDRPick"/>
+
 
 
 
@@ -65,11 +67,6 @@
                         Height="40"
                         Width="400"
                         Click="AuthBtn_Click"/>
-                <Button x:Name="BackBtn"
-                        Content="Назад"
-                        Height="40"
-                        Width="400"
-                        Click="BackBtn_Click"/>
             </StackPanel>
         </Grid>
     </Border>

@@ -25,15 +25,20 @@
         </Grid.RowDefinitions>
 
         <Label Content="Поиск" Style="{DynamicResource NormalLabel}"
-               Grid.Row="1" Grid.Column="1"/>
+               Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" />
         <TextBox x:Name="SearchTB"
                  Grid.Row="1" Grid.Column="2"
                  Width="Auto"
                  TextChanged="SearchTB_TextChanged_1"/>
         <Button x:Name="ExportToExcelBtn"
-                Content="Экспорт" Grid.Column="3"
+                 Grid.Column="3"
                 Grid.Row="1"
-                Click="ExportToExcelBtn_Click"/>
+                Click="ExportToExcelBtn_Click">
+            <StackPanel Orientation="Horizontal" Height="42" Width="111">
+                <Image Source="/ResourceFolder/ImageFolder/search.png" Width="32" />
+                <Label Content="Экспорт" VerticalAlignment="Center" Width="70"/>
+            </StackPanel>
+        </Button>
         <DataGrid x:Name="DgUser" AutoGenerateColumns="False" 
                   IsReadOnly="True"
                   Grid.Column="1" Grid.Row="2" 

@@ -36,23 +36,22 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
             Customers customers = DgUser.SelectedItem as Customers;
             if (DgUser.SelectedItem == null)
             {
-                MBClass.ErrorMB("Выберите пользователя" +
-                    " для удаления");
+                MBClass.ShowErrorPopup("Выбирете пользователя", Application.Current.MainWindow);
+
             }
             else
             {
-                if (MBClass.QuestionMB("Удалить " +
-                    $"заказ с именем заказчика " +
-                    $"{customers.FullName}?"))
-                {
+                
+                
                     DBEntities.GetContext().Customers
                         .Remove(DgUser.SelectedItem as Customers);
                     DBEntities.GetContext().SaveChanges();
 
-                    MBClass.InfoMB("Заказ удален");
+                    MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
+
                     DgUser.ItemsSource = DBEntities.GetContext()
                         .Customers.ToList().OrderBy(u => u.CustomerId);
-                }
+                
 
             }
         }
@@ -61,8 +60,8 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
         {
             if (DgUser.SelectedItem == null)
             {
-                MBClass.ErrorMB("Выберите " +
-                    "заказ для редактирования");
+                MBClass.ShowErrorPopup("Выбиерите заказ", Application.Current.MainWindow);
+
             }
             else
             {
@@ -84,7 +83,8 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
                 .ToList().OrderBy(u => u.FullName);
             if (DgUser.Items.Count <= 0)
             {
-                MBClass.ErrorMB("Данные не найдены");
+                MBClass.ShowErrorPopup("Выберите данные", Application.Current.MainWindow);
+
             }
         }
     }

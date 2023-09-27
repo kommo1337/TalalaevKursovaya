@@ -25,15 +25,21 @@
         </Grid.RowDefinitions>
 
         <Label Content="Поиск" Style="{DynamicResource NormalLabel}"
-               Grid.Row="1" Grid.Column="1"/>
+               Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" />
         <TextBox x:Name="SearchTB"
                  Grid.Row="1" Grid.Column="2"
                  Width="Auto"
                  TextChanged="SearchTB_TextChanged"/>
         <Button x:Name="ExportToExcelBtn"
-                Content="Экспорт" Grid.Column="3"
+                 Grid.Column="3"
                 Grid.Row="1"
-                Click="ExportToExcelBtn_Click" Margin="0,10,0,0"/>
+                Click="ExportToExcelBtn_Click" Margin="0,10,0,0" >
+            <StackPanel Orientation="Horizontal" Height="42" Width="111">
+                <Image Source="/ResourceFolder/ImageFolder/search.png" />
+                <Label Content="Экспорт" HorizontalAlignment ="Right" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
         <DataGrid x:Name="DgUser" AutoGenerateColumns="False" 
                   IsReadOnly="True"
                   Grid.Column="1" Grid.Row="2" 
@@ -43,13 +49,16 @@
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="DeleteMI"
-                              Header="Удалить пользователя"
+                              Header="Удалить заказ"
                               Click="DeleteMI_Click"/>
-                    <MenuItem x:Name="EditMI" Header="Редактирование пользователя"
+                    <MenuItem x:Name="EditMI" Header="Редактирование заказа"
                               Click="EditMI_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер"
+                                    Binding="{Binding CustomerId}"
+                                    Width="*"/>
                 <DataGridTextColumn Header="ФИО"
                                     Binding="{Binding FullName}"
                                     Width="*"/>
