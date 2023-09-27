@@ -49,7 +49,7 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
 
-
+                NavigationService.Navigate(new ListZakazPage());
 
             }
             catch (Exception ex)
@@ -65,13 +65,13 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
             switch (reklamaTypeId)
             {
                 case 1:
-                    price = 100; 
+                    price = 12000; 
                     break;
                 case 2:
-                    price = 150; 
+                    price = 15000; 
                     break;
                 case 3:
-                    price = 200; 
+                    price = 23000; 
                     break;
                 
                 default:

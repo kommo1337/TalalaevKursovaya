@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using TalalaevKursovaya.ClassFolder;
 using TalalaevKursovaya.DataFolder;
+using TalalaevKursovaya.PageFolder.ZakazFolder;
 
 namespace TalalaevKursach.PageFolder.AdminFolder
 {
@@ -57,6 +58,7 @@ namespace TalalaevKursach.PageFolder.AdminFolder
                             Adress = AdresTb.Text
                         });
                         DBEntities.GetContext().SaveChanges();
+                        NavigationService.Navigate(new ListUserPage());
                     }
                     else
                     {

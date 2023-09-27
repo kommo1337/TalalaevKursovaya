@@ -34,8 +34,8 @@ namespace TalalaevKursovaya.WindowFolder
                 DBEntities.GetContext().User.Add(new User()
                 {
                     FIO = FirstNameTB.Text,
-                    DateOfBirth = DateTime.Parse(BirthDateTB.Text),
-                    Adress = BirthDateTB.Text,
+                    DateOfBirth = (DateTime)DateDRPick.SelectedDate,
+                    Adress = AdresTB.Text,
                     UserName = LoginTB.Text,
                     UserPassword = PasswordTB.Text,
                     RoleId = 1
