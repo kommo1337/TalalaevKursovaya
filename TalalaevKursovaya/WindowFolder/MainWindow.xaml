@@ -57,6 +57,20 @@
                                 <TextBlock Text="Добавить пользователя" Style="{DynamicResource ButtonTextBlock}"/>
                             </StackPanel>
                         </Button>
+                        <Button x:Name="ListBookBtn_Copy" Width="260" Click="ListBookBtn_Copy_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/ResourceFolder/ImageFolder/list.png"
+                                    Width="20" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Список заказов" Style="{DynamicResource ButtonTextBlock}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="AddBookBtn_Copy" Width="260" Click="AddBookBtn_Copy_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/ResourceFolder/ImageFolder/add.png"
+                                    Width="20" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Добавить Заказ" Style="{DynamicResource ButtonTextBlock}"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                     <Button x:Name="ExitBtn" Width="260"
                             VerticalAlignment="Bottom"

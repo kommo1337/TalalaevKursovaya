@@ -58,5 +58,15 @@ namespace TalalaevKursovaya.WindowFolder
         {
             DragMove();
         }
+
+        private void ListBookBtn_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ListZakazPage());
+        }
+
+        private void AddBookBtn_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AddZakazPage());
+        }
     }
 }
