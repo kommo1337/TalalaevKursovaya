@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using TalalaevKursach.PageFolder.AdminFolder;
 using TalalaevKursovaya.ClassFolder;
 using TalalaevKursovaya.DataFolder;
+using TalalaevKursovaya.PageFolder.AdminFolder;
 
 namespace TalalaevKursovaya.PageFolder.ZakazFolder
 {
@@ -67,33 +68,33 @@ namespace TalalaevKursovaya.PageFolder.ZakazFolder
 
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Customers customers = DBEntities.GetContext().Customers
-                    .FirstOrDefault(u => u.CustomerId == u.CustomerId);
+        //private void Page_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        Customers customers = DBEntities.GetContext().Customers
+        //            .FirstOrDefault(u => u.CustomerId == u.CustomerId);
 
-                if (customers != null)
-                {
-                    NameTb.Text = customers.FullName;
-                    PhoneNumberTb.Text = customers.PhoneNumber;
-                    EmailTb.Text = customers.Email;
+        //        if (customers != null)
+        //        {
+        //            NameTb.Text = customers.FullName;
+        //            PhoneNumberTb.Text = customers.PhoneNumber;
+        //            EmailTb.Text = customers.Email;
 
-                    DateDRPick.SelectedDate = customers.BirthDate;
-                    DateZakazPick.SelectedDate = customers.Date;
+        //            DateDRPick.SelectedDate = customers.BirthDate;
+        //            DateZakazPick.SelectedDate = customers.Date;
 
-                    ReklamaTypeCb.SelectedIndex = customers.ReklamaTypeId - 1;
-                }
-                else
-                {
-                    MBClass.ShowMesagePopup("Выбирете пользователя", Application.Current.MainWindow);
-                }
-            }
-            catch (Exception ex)
-            {
-                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
-            }
-        }           
+        //            ReklamaTypeCb.SelectedIndex = customers.ReklamaTypeId - 1;
+        //        }
+        //        else
+        //        {
+        //            MBClass.ShowMesagePopup("Выбирете пользователя", Application.Current.MainWindow);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
+        //    }
+        //}           
     }
 }

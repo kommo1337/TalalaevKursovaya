@@ -1,5 +1,4 @@
-﻿using TalalaevKursach.ClassFolder;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TalalaevKursovaya.DataFolder;
+using TalalaevKursach.ClassFolder;
+using TalalaevKursach.PageFolder.AdminFolder;
 using TalalaevKursovaya.ClassFolder;
+using TalalaevKursovaya.DataFolder;
 
-namespace TalalaevKursach.PageFolder.AdminFolder
+namespace TalalaevKursovaya.PageFolder.AdminFolder
 {
     /// <summary>
     /// Логика взаимодействия для ListUserPage.xaml
@@ -27,9 +28,9 @@ namespace TalalaevKursach.PageFolder.AdminFolder
         {
             InitializeComponent();
             DgUser.ItemsSource = DBEntities.GetContext().User
-                .ToList().OrderBy(u => u.UserName);
+                    .ToList().OrderBy(u => u.UserName);
         }
-      
+
 
         private void SearchTB_TextChanged_1(object sender, TextChangedEventArgs e)
         {
@@ -39,7 +40,7 @@ namespace TalalaevKursach.PageFolder.AdminFolder
                 .ToList().OrderBy(u => u.UserName);
             if (DgUser.Items.Count <= 0)
             {
-                MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
+                MBClass.ErrorMB("Данные не найдены");
             }
         }
 
@@ -54,19 +55,23 @@ namespace TalalaevKursach.PageFolder.AdminFolder
 
             if (DgUser.SelectedItem == null)
             {
-                MBClass.ShowMesagePopup("Выберете пользователя", Application.Current.MainWindow);
+                MBClass.ErrorMB("Выберите пользователя" +
+                    " для удаления");
             }
             else
             {
-                
+                if (MBClass.QuestionMB("Удалить " +
+                    $"пользователя с логином " +
+                    $"{user.UserName}?"))
+                {
                     DBEntities.GetContext().User
                         .Remove(DgUser.SelectedItem as User);
                     DBEntities.GetContext().SaveChanges();
 
-                MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
-                DgUser.ItemsSource = DBEntities.GetContext()
+                    MBClass.InfoMB("Пользователь удален");
+                    DgUser.ItemsSource = DBEntities.GetContext()
                         .User.ToList().OrderBy(u => u.UserName);
-                
+                }
 
             }
         }
@@ -75,8 +80,8 @@ namespace TalalaevKursach.PageFolder.AdminFolder
         {
             if (DgUser.SelectedItem == null)
             {
-                MBClass.ShowErrorPopup("Выберете пользователя", Application.Current.MainWindow);
-
+                MBClass.ErrorMB("Выберите " +
+                    "пользователя для редактирования");
             }
             else
             {
@@ -86,3 +91,4 @@ namespace TalalaevKursach.PageFolder.AdminFolder
         }
     }
 }
+

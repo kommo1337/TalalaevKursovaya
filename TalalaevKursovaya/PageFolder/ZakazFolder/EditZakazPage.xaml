@@ -8,8 +8,8 @@
       mc:Ignorable="d" 
        MinHeight="500" MinWidth="500"
       MaxHeight="500" MaxWidth="500"
-      Title="Редактирование работника"
-      Loaded="Page_Loaded">
+      Title="Редактирование заказа"
+      >
     <Border BorderBrush="{x:Null}" BorderThickness="1" CornerRadius="20"
                   >
         <Border.Effect>
@@ -38,23 +38,23 @@
             </Grid.ColumnDefinitions>
 
             <TextBox x:Name="NameTb" Grid.Row="2" Grid.Column="1"
-                     materialDesign:HintAssist.Hint="ФИО"/>
+                     materialDesign:HintAssist.Hint="ФИО" Text="{Binding FullName}" />
 
             <Label Content="Дата заказа" Grid.Row="4" Grid.Column="1" FontSize="16" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
-            <DatePicker Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" x:Name="DateZakazPick"/>
+            <DatePicker Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" x:Name="DateZakazPick" SelectedDate="{Binding Date}"/>
 
 
             <TextBox x:Name="PhoneNumberTb" Grid.Row="6" Grid.Column="1"
-                     materialDesign:HintAssist.Hint="Номер телефона"/>
+                     materialDesign:HintAssist.Hint="Номер телефона" Text="{Binding PhoneNumber}"/>
             <TextBox x:Name="EmailTb" Grid.Row="2" Grid.Column="2"
-                     materialDesign:HintAssist.Hint="Эл. почта"/>
+                     materialDesign:HintAssist.Hint="Эл. почта" Text="{Binding Email}"/>
             <ComboBox x:Name="ReklamaTypeCb" Grid.Row="4" Grid.Column="2"
                      materialDesign:HintAssist.Hint="Тип рекламы" 
                       ItemsSource="{Binding ReklamaType}" DisplayMemberPath="ReklamaTypeName"
                   SelectedValuePath="Id"
                   SelectedValue="{Binding Path=Id}"/>
             <Label Content="Дата рождения" Grid.Row="6" Grid.Column="2" FontSize="16" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
-            <DatePicker Grid.Column="2" Grid.Row="6" HorizontalAlignment="Right" x:Name="DateDRPick"/>
+            <DatePicker Grid.Column="2" Grid.Row="6" HorizontalAlignment="Right" x:Name="DateDRPick" SelectedDate="{Binding BirthDate}"/>
 
 
 

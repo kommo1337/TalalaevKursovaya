@@ -43,15 +43,15 @@
             <TextBox x:Name="UserPassortTb" Grid.Row="4" Grid.Column="1"
                      materialDesign:HintAssist.Hint="Пароль"/>
 
-            <Label Content="Дата заказа" Grid.Row="4" Grid.Column="2" FontSize="16" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
+            <Label Content="Дата рождения" Grid.Row="4" Grid.Column="2" FontSize="16" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
             <DatePicker Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" x:Name="DateDRPick"/>
             <TextBox x:Name="FIOTb" Grid.Row="2" Grid.Column="2"
                      materialDesign:HintAssist.Hint="ФИО"/>
             <ComboBox x:Name="RoleCb" Grid.Row="6" Grid.Column="1"
                      materialDesign:HintAssist.Hint="Роль" 
                       ItemsSource="{Binding Role}" DisplayMemberPath="RoleName"
-                  SelectedValuePath="Id"
-                  SelectedValue="{Binding Path=Id}"/>
+                  SelectedValuePath="RoleId"
+                  SelectedValue="{Binding Path=RoleId}"/>
             <TextBox x:Name="AdresTb" Grid.Row="6" Grid.Column="2"
                      materialDesign:HintAssist.Hint="Адрес"/>
 

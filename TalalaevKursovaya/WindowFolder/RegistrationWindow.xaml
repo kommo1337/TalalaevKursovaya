@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TalalaevKursovaya.WindowFolder"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="LoginWindow" Height="530" Width="480" WindowStyle="None" WindowStartupLocation="CenterOwner" WindowState="Minimized" ResizeMode="NoResize">
+        Title="LoginWindow" Height="530" Width="480" WindowStyle="None" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize">
     <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="26*"/>

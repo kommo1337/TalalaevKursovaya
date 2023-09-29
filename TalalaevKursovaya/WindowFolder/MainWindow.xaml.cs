@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TalalaevKursach.PageFolder.AdminFolder;
+using TalalaevKursovaya.PageFolder.AdminFolder;
 using TalalaevKursovaya.PageFolder.ZakazFolder;
 
 namespace TalalaevKursovaya.WindowFolder
@@ -24,6 +25,7 @@ namespace TalalaevKursovaya.WindowFolder
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new ListUserPage());
         }
 
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)

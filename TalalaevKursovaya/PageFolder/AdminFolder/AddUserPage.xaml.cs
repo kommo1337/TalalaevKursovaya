@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using TalalaevKursovaya.ClassFolder;
 using TalalaevKursovaya.DataFolder;
+using TalalaevKursovaya.PageFolder.AdminFolder;
 using TalalaevKursovaya.PageFolder.ZakazFolder;
 
 namespace TalalaevKursach.PageFolder.AdminFolder
@@ -52,7 +53,7 @@ namespace TalalaevKursach.PageFolder.AdminFolder
                         {
                             UserName = UserNameTb.Text,
                             UserPassword = UserPassortTb.Text,
-                            RoleId = 1,
+                            RoleId = Int32.Parse(RoleCb.SelectedValue.ToString()),
                             FIO = FIOTb.Text,
                             DateOfBirth = dateOfBirth,
                             Adress = AdresTb.Text
@@ -99,7 +100,7 @@ namespace TalalaevKursach.PageFolder.AdminFolder
                     {
                         UserName = UserNameTb.Text,
                         UserPassword = UserPassortTb.Text,
-                        RoleId = 1,
+                        RoleId = Int32.Parse(RoleCb.SelectedValue.ToString()),
                         FIO = FIOTb.Text,
                         DateOfBirth = (DateTime)DateDRPick.SelectedDate,
                         Adress = AdresTb.Text

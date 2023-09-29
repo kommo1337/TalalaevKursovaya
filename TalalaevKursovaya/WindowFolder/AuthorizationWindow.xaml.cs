@@ -57,6 +57,7 @@ namespace TalalaevKursovaya.WindowFolder
                             break;
                         case 2:
                             new ZakazWindow().Show();
+                            Close();
                             break;
                         
                     }
@@ -77,7 +78,7 @@ namespace TalalaevKursovaya.WindowFolder
         private void TextBlock_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             new RegistrationWindow().Show();
-            Close();
+            this.Close();
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

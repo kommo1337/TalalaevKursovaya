@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
        MinHeight="500" MinWidth="500"
       MaxHeight="500" MaxWidth="500"
-      Title="Редактирование пользователя" Loaded="Page_Loaded"
+      Title="Редактирование пользователя" 
       >
     <Border BorderBrush="{x:Null}" BorderThickness="1" CornerRadius="20"
                   >
