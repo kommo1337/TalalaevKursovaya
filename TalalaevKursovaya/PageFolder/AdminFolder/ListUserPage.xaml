@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <Label Content="Поиск" Style="{DynamicResource NormalLabel}"
-               Grid.Row="1" Grid.Column="1"/>
+               Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
         <TextBox x:Name="SearchTB"
                  Grid.Row="1" Grid.Column="2"
                  Width="Auto"

@@ -40,7 +40,7 @@ namespace TalalaevKursovaya.PageFolder.AdminFolder
                 .ToList().OrderBy(u => u.UserName);
             if (DgUser.Items.Count <= 0)
             {
-                MBClass.ErrorMB("Данные не найдены");
+                MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
             }
         }
 
@@ -55,23 +55,21 @@ namespace TalalaevKursovaya.PageFolder.AdminFolder
 
             if (DgUser.SelectedItem == null)
             {
-                MBClass.ErrorMB("Выберите пользователя" +
-                    " для удаления");
+                MBClass.ShowErrorPopup("Выбирите пользователя", Application.Current.MainWindow);
+
             }
             else
             {
-                if (MBClass.QuestionMB("Удалить " +
-                    $"пользователя с логином " +
-                    $"{user.UserName}?"))
-                {
+                
+                
                     DBEntities.GetContext().User
                         .Remove(DgUser.SelectedItem as User);
                     DBEntities.GetContext().SaveChanges();
 
-                    MBClass.InfoMB("Пользователь удален");
-                    DgUser.ItemsSource = DBEntities.GetContext()
+                MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
+                DgUser.ItemsSource = DBEntities.GetContext()
                         .User.ToList().OrderBy(u => u.UserName);
-                }
+                
 
             }
         }
@@ -80,8 +78,7 @@ namespace TalalaevKursovaya.PageFolder.AdminFolder
         {
             if (DgUser.SelectedItem == null)
             {
-                MBClass.ErrorMB("Выберите " +
-                    "пользователя для редактирования");
+                MBClass.ShowErrorPopup("Выбирите пользователя", Application.Current.MainWindow);
             }
             else
             {
